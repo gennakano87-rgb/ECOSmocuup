@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>請求書作成・一覧 - ECOS 運営サイト</title>
+    <link rel="icon" href="../favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../dist/css/style.css">
+    <link rel="stylesheet" href="../dist/css/sidebar.css">
+</head>
+
+<body class="bg-gray-100">
+    <div id="sidebar-overlay"></div>
+
+    <div id="sidebar">
+        <div id="logo">
+            <div>
+                <a href="../dashboard.html">
+                    <img src="../images/ecos.png" alt="ECOS">
+                </a>
+                <button id="sidebar-close">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="user-info">
+            <p class="user-name">IMTW</p>
+            <p class="user-role">サンプル 太郎</p>
+        </div>
+
+        <nav>
+            <div>
+                <a href="../event/event_index.html" class="event-button">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    イベント
+                </a>
+            </div>
+
+            <div>
+                <button class="sidebar-section-toggle" data-section="settings">
+                    <span>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        設定
+                    </span>
+                    <svg class="sidebar-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <ul class="sidebar-section-content" data-section="settings">
+                    <li><a href="../config/general_form.html">システム全般</a></li>
+                    <li><a href="../config/reception_index.html">受付場所</a></li>
+                    <li><a href="../config/group_index.html">グループ</a></li>
+                    <li><a href="../config/ad_index.html">バナー広告</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <button class="sidebar-section-toggle" data-section="documents">
+                    <span>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        帳票作成
+                    </span>
+                    <svg class="sidebar-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <ul class="sidebar-section-content" data-section="documents">
+                    <li><a href="estimate_index.html">見積書</a></li>
+                    <li><a href="order_index.html">発注書</a></li>
+                    <li><a href="delivery_index.html">納品書</a></li>
+                    <li><a href="invoice_index.html" class="font-semibold text-blue-600">請求書</a></li>
+                    <li><a href="receipt_index.html">領収書</a></li>
+                </ul>
+            </div>
+
+            <div class="logout-area">
+                <a href="../auth/login.html">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                    </svg>
+                    ログアウト
+                </a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="sidbar-margin">
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <nav aria-label="Breadcrumb" class="text-sm">
+                        <ol class="flex items-center space-x-2 text-gray-600 flex-wrap">
+                            <li><a href="../backend/dashboard.html" class="hover:text-blue-600">ECOSメニュー</a></li>
+                            <li>/</li>
+                            <li><a href="#" class="hover:text-blue-600">請求書作成・一覧</a></li>
+                        </ol>
+                    </nav>
+                    <button id="sidebar-toggle" class="lg:hidden">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="p-6 space-y-6">
+            <section class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-800">請求書作成・一覧</h1>
+                    <p class="text-sm text-gray-600 mt-2">請求書の作成・検索・入金状況の管理を行います。</p>
+                </div>
+                <div class="flex flex-wrap gap-3">
+                    <button type="button" class="inline-flex items-center px-4 py-2 rounded-md border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-colors shadow-sm">一括PDF出力</button>
+                    <a href="invoice_bulk_update.html" class="inline-flex items-center px-4 py-2 rounded-md border border-blue-300 bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors shadow-sm">一括更新</a>
+                    <a href="invoice_create.html" class="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors shadow-sm">新規請求書作成</a>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-lg font-semibold text-gray-800 mb-5">検索・絞り込み</h2>
+                <form id="search-form" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+                        <div>
+                            <label for="invoice-no" class="block text-sm font-medium text-gray-700 mb-2">請求番号</label>
+                            <input id="invoice-no" type="text" placeholder="例：INV-2025-0012" class="w-full rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
+                        </div>
+                        <div>
+                            <label for="project-name" class="block text-sm font-medium text-gray-700 mb-2">案件名</label>
+                            <input id="project-name" type="text" placeholder="例：展示会施工費" class="w-full rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
+                        </div>
+                        <div>
+                            <label for="billing-name" class="block text-sm font-medium text-gray-700 mb-2">請求先名</label>
+                            <input id="billing-name" type="text" placeholder="例：株式会社〇〇" class="w-full rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
+                        </div>
+                        <div>
+                            <label for="payment-status" class="block text-sm font-medium text-gray-700 mb-2">入金ステータス</label>
+                            <select id="payment-status" class="w-full rounded-md border border-gray-300 px-3 py-2.5 text-sm bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
+                                <option value="">すべて</option>
+                                <option value="未請求">未請求</option>
+                                <option value="請求済み">請求済み</option>
+                                <option value="入金待ち">入金待ち</option>
+                                <option value="入金済み">入金済み</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="issue-from" class="block text-sm font-medium text-gray-700 mb-2">発行日（開始）</label>
+                            <input id="issue-from" type="date" class="w-full rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
+                        </div>
+                        <div>
+                            <label for="issue-to" class="block text-sm font-medium text-gray-700 mb-2">発行日（終了）</label>
+                            <input id="issue-to" type="date" class="w-full rounded-md border border-gray-300 px-3 py-2.5 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button type="submit" class="inline-flex items-center px-5 py-2.5 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors shadow-sm">検索</button>
+                        <button type="reset" class="inline-flex items-center px-5 py-2.5 rounded-md border border-gray-300 bg-white text-gray-700 text-sm font-medium hover:bg-gray-50 transition-colors">クリア</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="px-6 py-5 border-b border-gray-200 flex flex-col gap-4">
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                        <div>
+                            <h2 class="text-lg font-semibold text-gray-800">請求書一覧</h2>
+                            <p id="result-count-text" class="text-sm text-gray-600 mt-1">該当件数：0件</p>
+                        </div>
+                        <div>
+                            <label for="page-size" class="block text-sm font-medium text-gray-700 mb-2">表示件数</label>
+                            <select id="page-size" class="w-32 rounded-md border border-gray-300 px-3 py-2 text-sm bg-white">
+                                <option value="10">10件</option>
+                                <option value="20" selected>20件</option>
+                                <option value="50">50件</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex flex-col xl:flex-row xl:items-end gap-4">
+                            <div>
+                                <label for="bulk-target" class="block text-sm font-medium text-gray-700 mb-2">一括変更対象</label>
+                                <select id="bulk-target" class="w-56 rounded-md border border-gray-300 px-3 py-2.5 text-sm bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
+                                    <option value="issue_status">発行ステータス</option>
+                                    <option value="payment_status">入金ステータス</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="bulk-value" class="block text-sm font-medium text-gray-700 mb-2">変更後の値</label>
+                                <select id="bulk-value" class="w-56 rounded-md border border-gray-300 px-3 py-2.5 text-sm bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none"></select>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <button id="bulk-apply-btn" type="button" class="inline-flex items-center px-5 py-2.5 rounded-md bg-slate-600 text-white text-sm font-medium hover:bg-slate-700 transition-colors">選択中の請求書に一括反映</button>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-3">チェックした請求書に対して、発行ステータスまたは入金ステータスを一括更新できます。</p>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-[1600px] w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"><input id="check-all" type="checkbox" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"></th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">請求番号</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">案件名</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">請求先</th>
+                                <th class="px-4 py-3 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">請求金額</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">発行ステータス</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">入金ステータス</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">発行日</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">支払期限</th>
+                                <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoice-table-body" class="divide-y divide-gray-200 bg-white"></tbody>
+                    </table>
+                </div>
+
+                <div class="px-6 py-4 border-t border-gray-200 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <p id="display-count-text" class="text-sm text-gray-600">0件</p>
+                    <nav aria-label="Pagination">
+                        <ul class="flex items-center gap-2">
+                            <li><a href="#" id="prev-page" class="inline-flex items-center px-3 py-2 text-sm rounded-md border border-gray-300 bg-white text-gray-600">前へ</a></li>
+                            <li><span id="page-indicator" class="inline-flex items-center px-3 py-2 text-sm rounded-md bg-blue-600 text-white">1</span></li>
+                            <li><a href="#" id="next-page" class="inline-flex items-center px-3 py-2 text-sm rounded-md border border-gray-300 bg-white text-gray-700">次へ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../dist/js/backend/sidebar.js"></script>
+    <script>
+        const invoiceData = [
+            { invoice_no: "INV-2025-0001", project_name: "春季展示会ブース施工", billing_name: "株式会社未来イベント", total: 1320000, issue_status: "発行済み", payment_status: "入金待ち", issue_date: "2025/08/10", due_date: "2025/09/10" },
+            { invoice_no: "INV-2025-0002", project_name: "受付機材レンタル一式", billing_name: "ジャパン運営サービス株式会社", total: 486000, issue_status: "未発行", payment_status: "未請求", issue_date: "2025/08/12", due_date: "2025/09/12" },
+            { invoice_no: "INV-2025-0003", project_name: "会場サイン制作・設営", billing_name: "株式会社サインワークス", total: 275000, issue_status: "発行済み", payment_status: "請求済み", issue_date: "2025/08/09", due_date: "2025/09/09" },
+            { invoice_no: "INV-2025-0004", project_name: "主催者ラウンジ備品手配", billing_name: "株式会社オフィスサポート", total: 198000, issue_status: "発行済み", payment_status: "入金済み", issue_date: "2025/08/07", due_date: "2025/09/07" }
+        ];
+
+        const bulkOptions = {
+            issue_status: ["未発行", "発行済み"],
+            payment_status: ["未請求", "請求済み", "入金待ち", "入金済み"]
+        };
+
+        let filteredData = [...invoiceData];
+        let currentPage = 1;
+
+        const tableBody = document.getElementById("invoice-table-body");
+        const pageSize = document.getElementById("page-size");
+        const resultCountText = document.getElementById("result-count-text");
+        const displayCountText = document.getElementById("display-count-text");
+        const pageIndicator = document.getElementById("page-indicator");
+        const checkAll = document.getElementById("check-all");
+
+        const bulkTarget = document.getElementById("bulk-target");
+        const bulkValue = document.getElementById("bulk-value");
+        const bulkApplyBtn = document.getElementById("bulk-apply-btn");
+
+        const invoiceNoInput = document.getElementById("invoice-no");
+        const projectNameInput = document.getElementById("project-name");
+        const billingNameInput = document.getElementById("billing-name");
+        const paymentStatusInput = document.getElementById("payment-status");
+        const issueFromInput = document.getElementById("issue-from");
+        const issueToInput = document.getElementById("issue-to");
+
+        function formatCurrency(value) {
+            return "¥" + Number(value || 0).toLocaleString("ja-JP");
+        }
+
+        function getPageSize() {
+            return Number(pageSize.value || 20);
+        }
+
+        function refreshBulkValueOptions() {
+            const selectedTarget = bulkTarget.value;
+            const options = bulkOptions[selectedTarget] || [];
+            bulkValue.innerHTML = "";
+            options.forEach((optionText, index) => {
+                const option = document.createElement("option");
+                option.value = optionText;
+                option.textContent = optionText;
+                if (index === 0) option.selected = true;
+                bulkValue.appendChild(option);
+            });
+        }
+
+        function buildStatusSelect(field, value) {
+            const options = bulkOptions[field] || [];
+            return `
+                <select data-bulk-field="${field}" class="w-40 rounded-md border border-gray-300 px-3 py-2 text-sm bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
+                    ${options.map((option) => `<option value="${option}" ${option === value ? "selected" : ""}>${option}</option>`).join("")}
+                </select>
+            `;
+        }
+
+        function matchesDateRange(dateStr, from, to) {
+            if (!from && !to) return true;
+            const date = new Date(String(dateStr).replace(/\//g, "-") + "T00:00:00");
+            if (Number.isNaN(date.getTime())) return false;
+            if (from && date < new Date(from + "T00:00:00")) return false;
+            if (to && date > new Date(to + "T23:59:59")) return false;
+            return true;
+        }
+
+        function renderTable() {
+            const size = getPageSize();
+            const total = filteredData.length;
+            const start = (currentPage - 1) * size;
+            const items = filteredData.slice(start, start + size);
+
+            if (items.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="10" class="px-4 py-8 text-center text-gray-500">データがありません</td></tr>';
+                displayCountText.textContent = "0件";
+                resultCountText.textContent = "該当件数：0件";
+                pageIndicator.textContent = "0";
+                checkAll.checked = false;
+                return;
+            }
+
+            tableBody.innerHTML = items.map((item) => `
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-4 py-4"><input type="checkbox" class="row-checkbox rounded border-gray-300 text-blue-600"></td>
+                    <td class="px-4 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">${item.invoice_no}</td>
+                    <td class="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">${item.project_name}</td>
+                    <td class="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">${item.billing_name}</td>
+                    <td class="px-4 py-4 text-sm text-gray-800 text-right whitespace-nowrap">${formatCurrency(item.total)}</td>
+                    <td class="px-4 py-4 whitespace-nowrap">${buildStatusSelect("issue_status", item.issue_status)}</td>
+                    <td class="px-4 py-4 whitespace-nowrap">${buildStatusSelect("payment_status", item.payment_status)}</td>
+                    <td class="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">${item.issue_date}</td>
+                    <td class="px-4 py-4 text-sm text-gray-700 whitespace-nowrap">${item.due_date}</td>
+                    <td class="px-4 py-4 whitespace-nowrap">
+                        <div class="flex items-center gap-2">
+                            <a href="invoice_detail.html" class="inline-flex items-center px-3 py-1.5 rounded-md border border-gray-300 text-xs text-gray-700 hover:bg-gray-50">詳細</a>
+                            <a href="invoice_edit.html" class="inline-flex items-center px-3 py-1.5 rounded-md bg-blue-600 text-xs text-white hover:bg-blue-700">編集</a>
+                        </div>
+                    </td>
+                </tr>
+            `).join("");
+
+            const end = Math.min(start + size, total);
+            const maxPage = Math.max(1, Math.ceil(total / size));
+            displayCountText.textContent = `${start + 1}〜${end}件を表示 / 全${total}件`;
+            resultCountText.textContent = `該当件数：${total}件`;
+            pageIndicator.textContent = `${currentPage}/${maxPage}`;
+
+            const rowCheckboxes = document.querySelectorAll(".row-checkbox");
+            checkAll.checked = false;
+            checkAll.onchange = () => rowCheckboxes.forEach((cb) => cb.checked = checkAll.checked);
+            rowCheckboxes.forEach((cb) => cb.addEventListener("change", () => {
+                checkAll.checked = Array.from(rowCheckboxes).every((item) => item.checked);
+            }));
+        }
+
+        function applyBulkUpdate() {
+            const selectedTarget = bulkTarget.value;
+            const selectedValue = bulkValue.value;
+            const rowCheckboxes = document.querySelectorAll(".row-checkbox");
+
+            rowCheckboxes.forEach((checkbox) => {
+                if (!checkbox.checked) return;
+                const row = checkbox.closest("tr");
+                const targetSelect = row.querySelector(`select[data-bulk-field="${selectedTarget}"]`);
+                if (targetSelect) targetSelect.value = selectedValue;
+            });
+        }
+
+        function applyFilters() {
+            const invoiceNo = invoiceNoInput.value.trim().toLowerCase();
+            const projectName = projectNameInput.value.trim().toLowerCase();
+            const billingName = billingNameInput.value.trim().toLowerCase();
+            const paymentStatus = paymentStatusInput.value;
+            const issueFrom = issueFromInput.value;
+            const issueTo = issueToInput.value;
+
+            filteredData = invoiceData.filter((item) => {
+                const okNo = !invoiceNo || item.invoice_no.toLowerCase().includes(invoiceNo);
+                const okProject = !projectName || item.project_name.toLowerCase().includes(projectName);
+                const okBilling = !billingName || item.billing_name.toLowerCase().includes(billingName);
+                const okPayment = !paymentStatus || item.payment_status === paymentStatus;
+                const okDate = matchesDateRange(item.issue_date, issueFrom, issueTo);
+                return okNo && okProject && okBilling && okPayment && okDate;
+            });
+
+            currentPage = 1;
+            renderTable();
+        }
+
+        document.getElementById("search-form").addEventListener("submit", (e) => {
+            e.preventDefault();
+            applyFilters();
+        });
+
+        document.querySelector('button[type="reset"]').addEventListener("click", () => {
+            setTimeout(() => {
+                filteredData = [...invoiceData];
+                currentPage = 1;
+                renderTable();
+            }, 0);
+        });
+
+        pageSize.addEventListener("change", () => {
+            currentPage = 1;
+            renderTable();
+        });
+
+        document.getElementById("prev-page").addEventListener("click", (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                renderTable();
+            }
+        });
+
+        document.getElementById("next-page").addEventListener("click", (e) => {
+            e.preventDefault();
+            const maxPage = Math.max(1, Math.ceil(filteredData.length / getPageSize()));
+            if (currentPage < maxPage) {
+                currentPage++;
+                renderTable();
+            }
+        });
+
+        bulkTarget.addEventListener("change", refreshBulkValueOptions);
+        bulkApplyBtn.addEventListener("click", applyBulkUpdate);
+
+        refreshBulkValueOptions();
+        renderTable();
+    </script>
+</body>
+
+</html>
